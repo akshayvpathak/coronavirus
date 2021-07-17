@@ -80,7 +80,7 @@ readline.on('line',(line)=>{
         console.log(data.length);
         data.map((substring,length)=> {
             if(length>=0){
-                if(isSubSequence(mainString,substring,mainString.length,substring.length)){
+                if(withCharacter(substring,mainString,substring.length,mainString.length)){
                     console.log('POSITIVE')
                 }
                 else{
@@ -91,7 +91,7 @@ readline.on('line',(line)=>{
 
     }
 
-function isSubSequence(str1, str2, m, n){
+/* function isSubSequence(str1, str2, m, n){
      
     // Base Cases
     if (m == 0)
@@ -107,5 +107,24 @@ function isSubSequence(str1, str2, m, n){
  
     // If last characters are not matching
     return isSubSequence(str1, str2, m, n - 1);
-}
+} */
 
+function withCharacter(str1 ,str2 ,m, n){
+
+    let j = 0
+    let i = 0 
+
+
+    while (j < m && i < n){
+        if(str1[j] == str2[i])
+        j = j+1;
+        i = i + 1;
+    }
+        
+    if(j == m){
+        return true;
+    }
+    else {
+        return false;
+    }
+}
